@@ -9,5 +9,6 @@ public class FactoryInstaller : MonoInstaller
     {
         //Container.BindFactory<MyFactoryItem, MyFactory>().FromComponentInNewPrefab(myFactoryItem);
         Container.BindFactory<IMyAbstractItem, MyFactory>().FromComponentInNewPrefab(myFactoryItem);
+        Container.Bind<FactorySceneRegularClass>().AsSingle();
     }
 }
