@@ -1,4 +1,4 @@
 using Zenject;
-public class MyFactory : PlaceholderFactory<MyFactoryItem>
+public class MyFactory : PlaceholderFactory<IMyAbstractItem>
 {
 }

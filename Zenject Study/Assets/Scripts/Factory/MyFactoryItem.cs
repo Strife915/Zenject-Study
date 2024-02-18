@@ -1,5 +1,5 @@
 using UnityEngine;
 
-public class MyFactoryItem : MonoBehaviour
+public class MyFactoryItem : MonoBehaviour , IMyAbstractItem
 {
 }

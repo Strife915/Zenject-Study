@@ -7,6 +7,7 @@ public class FactoryInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.BindFactory<MyFactoryItem, MyFactory>().FromComponentInNewPrefab(myFactoryItem);
+        //Container.BindFactory<MyFactoryItem, MyFactory>().FromComponentInNewPrefab(myFactoryItem);
+        Container.BindFactory<IMyAbstractItem, MyFactory>().FromComponentInNewPrefab(myFactoryItem);
     }
 }
