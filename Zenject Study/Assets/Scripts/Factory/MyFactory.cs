@@ -1,6 +1,4 @@
-using System;
 using Zenject;
-
-public class MyFactory : Factory<MyFactoryItem>
+public class MyFactory : PlaceholderFactory<MyFactoryItem>
 {
 }
