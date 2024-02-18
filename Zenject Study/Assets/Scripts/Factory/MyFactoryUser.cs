@@ -16,7 +16,7 @@ public class MyFactoryUser : MonoBehaviour
     {
         while (true)
         {
-            _factory.Create();
+            _factory.Create(2,"Hello");
             yield return new WaitForSeconds(2f);
         }
     }

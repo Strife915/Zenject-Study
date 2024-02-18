@@ -1,13 +1,16 @@
 using UnityEngine;
 using Zenject;
 
-public class MyFactoryItem : MonoBehaviour , IMyAbstractItem
+public class MyFactoryItem :  IMyAbstractItem
 {
-    FactorySceneRegularClass _class;
+    int _a;
+    string _string;
     [Inject]
-    void Construct(FactorySceneRegularClass regularClass)
+    void Construct(int a,string s)
     {
-        _class = regularClass;
-        Debug.Log(_class.A);
+        _a = a;
+        _string = s;
+        Debug.Log(_a);
+        Debug.Log(_string);
     }
 }
