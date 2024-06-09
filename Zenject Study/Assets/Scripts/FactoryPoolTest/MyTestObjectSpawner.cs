@@ -1,34 +1,41 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using Zenject;
 
 public class MyTestObjectSpawner : IInitializable
 {
     MyTestObjectPool _pool;
     MoverFactory _moverFactory;
+    CancellationTokenSource _cancellationTokenSource;
 
     public MyTestObjectSpawner(MyTestObjectPool pool, MoverFactory moverFactory)
     {
         _pool = pool;
         _moverFactory = moverFactory;
+        _cancellationTokenSource = new CancellationTokenSource();
     }
 
     public void Initialize()
     {
-        SpawnProcess();
+        SpawnProcess(_cancellationTokenSource.Token).Forget();
     }
 
-    async void SpawnProcess()
+    async UniTaskVoid SpawnProcess(CancellationToken token)
     {
-        while (true)
+        // Başlangıçta gecikme görevini oluştur
+        var delayTask = UniTask.Delay(1000, cancellationToken: token);
+
+        while (!token.IsCancellationRequested)
         {
             var myTestObject = _pool.Spawn();
-
-            // Assuming myTestObject has a Transform component
             var mover = _moverFactory.Create(myTestObject.transform);
             myTestObject.Construct(mover);
             mover.Move();
 
-            await UniTask.Delay(1000);
+            await delayTask; // Önceden oluşturulmuş gecikme görevini kullan
+
+            // Gecikme görevini yeniden başlat
+            delayTask = UniTask.Delay(1000, cancellationToken: token);
         }
     }
 }
