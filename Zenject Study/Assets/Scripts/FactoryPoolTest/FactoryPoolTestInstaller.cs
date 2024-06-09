@@ -8,10 +8,11 @@ public class FactoryPoolTestInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.BindFactory<Transform, Mover, MoverFactory>().AsSingle();
+        Container.BindFactory<Transform, IMover, MoverFactory>()
+            .To<Mover>()
+            .AsSingle();
         Container.BindMemoryPool<MyTestPoolObject2, MyTestObjectPool>().WithInitialSize(5)
             .FromComponentInNewPrefab(myTestPoolObject2Prefab);
         Container.BindInterfacesAndSelfTo<MyTestObjectSpawner>().AsSingle().NonLazy();
-        //Container.BindInterfacesAndSelfTo<Mover>().AsTransient();
     }
 }
