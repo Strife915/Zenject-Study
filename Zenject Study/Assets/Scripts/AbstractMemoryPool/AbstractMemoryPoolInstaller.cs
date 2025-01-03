@@ -4,8 +4,7 @@ using Zenject;
 
 public class AbstractMemoryPoolInstaller : MonoInstaller
 {
-    [FormerlySerializedAs("_abstractMemoryPoolObjectPrefab")] [SerializeField]
-    AbstractMonoMemoryPoolObject abstractMonoMemoryPoolObjectPrefab;
+    [SerializeField] AbstractMonoMemoryPoolObject abstractMonoMemoryPoolObjectPrefab;
 
     public override void InstallBindings()
     {
