@@ -2,14 +2,14 @@ using Zenject;
 
 namespace Decorator2
 {
-    public class WeaponEnchantAttackerDecorator : IAttacker
+    public class EliteWeaponEnchantAttackerDecorator : IAttacker
     {
         readonly IAttacker _decorated;
         readonly int _weaponEnchantPercent;
 
-        public WeaponEnchantAttackerDecorator(
+        public EliteWeaponEnchantAttackerDecorator(
             IAttacker decorated,
-            [Inject(Id = Decorator2Installer.DefaultWeaponEnchantPercentId)] int weaponEnchantPercent)
+            [Inject(Id = Decorator2Installer.EliteWeaponEnchantPercentId)] int weaponEnchantPercent)
         {
             _decorated = decorated;
             _weaponEnchantPercent = weaponEnchantPercent;

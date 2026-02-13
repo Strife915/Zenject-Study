@@ -2,11 +2,11 @@ using Zenject;
 
 namespace Decorator2
 {
-    public class BaseAttacker : IAttacker
+    public class EliteBaseAttacker : IAttacker
     {
         readonly int _baseDamage;
 
-        public BaseAttacker([Inject(Id = Decorator2Installer.DefaultBaseDamageId)] int baseDamage)
+        public EliteBaseAttacker([Inject(Id = Decorator2Installer.EliteBaseDamageId)] int baseDamage)
         {
             _baseDamage = baseDamage;
         }
