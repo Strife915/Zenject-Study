@@ -28,9 +28,7 @@ namespace Decorator2
             Container.Decorate<IAttacker>().With<WeaponAttackerDecorator>();
             Container.Decorate<IAttacker>().With<WeaponEnchantAttackerDecorator>();
 
-            Container.Bind<Decorator2AttackLogger>()
-                .FromComponentInHierarchy()
-                .AsSingle();
+            Container.BindInterfacesTo<Decorator2AttackPresenter>().AsSingle();
         }
     }
 }
