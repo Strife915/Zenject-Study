@@ -13,8 +13,7 @@ namespace Decorator2
 
         public const string EliteBaseDamageId = "Decorator2.Elite.BaseDamage";
         public const string EliteWeaponBonusId = "Decorator2.Elite.WeaponBonus";
-        public const string EliteWeaponEnchantPercentId = "Decorator2.Elite.WeaponEnchantPercent";
-        public const string EliteEnchantPercentId = EliteWeaponEnchantPercentId;
+        public const string EliteEnchantPercentId = "Decorator2.Elite.WeaponEnchantPercent";
         public const string EliteBerserkPercentId = "Decorator2.Elite.BerserkPercent";
 
         [Header("Default Attacker")]
@@ -48,7 +47,7 @@ namespace Decorator2
 
             Container.BindInstance(_eliteBaseDamage).WithId(EliteBaseDamageId);
             Container.BindInstance(_eliteWeaponBonus).WithId(EliteWeaponBonusId);
-            Container.BindInstance(_eliteWeaponEnchantPercent).WithId(EliteWeaponEnchantPercentId);
+            Container.BindInstance(_eliteWeaponEnchantPercent).WithId(EliteEnchantPercentId);
             Container.BindInstance(_eliteBerserkPercent).WithId(EliteBerserkPercentId);
 
             Container.Bind<IAttacker>()
