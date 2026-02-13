@@ -9,7 +9,7 @@ namespace Decorator2
 
         public EliteWeaponEnchantAttackerDecorator(
             IAttacker decorated,
-            [Inject(Id = Decorator2Installer.EliteWeaponEnchantPercentId)] int weaponEnchantPercent)
+            [Inject(Id = Decorator2Installer.EliteEnchantPercentId)] int weaponEnchantPercent)
         {
             _decorated = decorated;
             _weaponEnchantPercent = weaponEnchantPercent;

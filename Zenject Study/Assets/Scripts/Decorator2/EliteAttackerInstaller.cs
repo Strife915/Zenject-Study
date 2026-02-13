@@ -6,7 +6,7 @@ namespace Decorator2
     {
         public override void InstallBindings()
         {
-            Container.Bind<IAttacker>().To<EliteBaseAttacker>().AsTransient();
+            Container.Bind<IAttacker>().To<EliteAttacker>().AsTransient();
             Container.Decorate<IAttacker>().With<EliteWeaponAttackerDecorator>();
             Container.Decorate<IAttacker>().With<EliteWeaponEnchantAttackerDecorator>();
             Container.Decorate<IAttacker>().With<EliteBerserkAttackerDecorator>();
