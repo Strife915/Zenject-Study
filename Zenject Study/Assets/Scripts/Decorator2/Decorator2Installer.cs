@@ -53,13 +53,13 @@ namespace Decorator2
             Container.Bind<IAttacker>()
                 .FromSubContainerResolve()
                 .ByInstaller<DefaultAttackerInstaller>()
-                .AsSingle();
+                .AsCached();
 
             Container.Bind<IAttacker>()
                 .WithId(EliteAttackerId)
                 .FromSubContainerResolve()
                 .ByInstaller<EliteAttackerInstaller>()
-                .AsSingle();
+                .AsCached();
 
             Container.BindInterfacesTo<Decorator2AttackPresenter>().AsSingle();
         }
